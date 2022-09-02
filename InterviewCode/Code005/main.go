@@ -5,7 +5,7 @@
    @version 0.1
    @date 2022/9/2 10:59
    @Description: 005: init() 函数是什么时候执行的?
-   @Analysis: 初始化顺序 从最底层开始执行init函数,也就是先初始化不依赖任何包的那些包
+   @Analysis: 初始化顺序 从最底层开始执行init函数,也就是先初始化不依赖任何包的那些包.
 
 */
 
@@ -40,6 +40,7 @@ func code001() {
 }
 
 func code002() {
+	// 同包下的方法 InterviewCode/Code005/initFunc/code.go
 	initFunc.TestInitFunc()
 	// 1.package-initFuc-init
 	// 2.main-package

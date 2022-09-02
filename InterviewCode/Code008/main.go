@@ -4,10 +4,10 @@
    @File Code008
    @version 0.1
    @date 2022/9/2 14:17
-   @Description: 008: 交换两个变量的值
+   @Description: 008: 如何交换两个变量的值?
    @Analysis:
 	Go语言中传参都是值拷贝,
-	需要使用指针类型才可以交换
+	需要使用指针类型才可以交换.
 
 */
 
@@ -29,6 +29,7 @@ func main() {
 
 	// 解答
 	c, d := 3, 4
+	// 传递地址
 	code(&c, &d)
 	fmt.Println(c, d) // 4,3
 
