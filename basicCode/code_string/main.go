@@ -382,7 +382,28 @@ func strList() {
 
 }
 
+func jsonStr() {
+	str := `2022-08-26 11:36:46.155 32004 32004 I dist    : type=1400 audit(0.0:223605): avc: denied { append } for name=\"go_agent.log\" dev=\"dm-9\" ino=54341 scontext=u:r:start-ssh:s0 tcontext=u:object_r:system_data_file:s0 tclass=file permissive=1\n2022-08-26 11:36:46.155 32004 32004 I dist    : type=1400 audit(0.0:223606): avc: denied { create } for scontext=u:r:start-ssh:s0 tcontext=u:r:start-ssh:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:36:46.159 32004 32004 I dist    : type=1400 audit(0.0:223607): avc: denied { bind } for scontext=u:r:start-ssh:s0 tcontext=u:r:start-ssh:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:36:46.159 32004 32004 I dist    : type=1400 audit(0.0:223608): avc: denied { node_bind } for saddr=::1 scontext=u:r:start-ssh:s0 tcontext=u:object_r:node:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:36:46.159 32004 32004 I dist    : type=1400 audit(0.0:223609): avc: denied { read } for name=\"somaxconn\" dev=\"proc\" ino=65941 scontext=u:r:start-ssh:s0 tcontext=u:object_r:proc_net:s0 tclass=file permissive=1\n2022-08-26 11:38:02.755 32137 32137 I dist    : type=1400 audit(0.0:223652): avc: denied { connect } for scontext=u:r:start-ssh:s0 tcontext=u:r:start-ssh:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:38:02.755 32137 32137 I dist    : type=1400 audit(0.0:223653): avc: denied { name_connect } for dest=18080 scontext=u:r:start-ssh:s0 tcontext=u:object_r:port:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:38:55.220   690 32210 E ResolverController: No valid NAT64 prefix (100, <unspecified>/0)\n2022-08-26 11:38:55.224   690 32212 E ResolverController: No valid NAT64 prefix (100, <unspecified>/0)\n2022-08-26 11:38:58.172   690 32213 E ResolverController: No valid NAT64 prefix (100, <unspecified>/0)\n`
+
+	s := strings.Split(str, `\n`)
+	for i, ele := range s {
+		fmt.Printf("i:%d ,%+v  \n", i, ele)
+
+	}
+
+}
+
+func strCut() {
+	str := "aabbcc=ddee=ffgg"
+	// 分割
+	cut, after, found := strings.Cut(str, "=")
+	if found {
+		fmt.Println(cut, after, found) // 头,尾,真/假
+	}
+}
+
 func main() {
+	strCut()
 	//strList()
 	//strFindTrim()
 	//replacerStr()
@@ -403,16 +424,5 @@ func main() {
 	//float64Pow()
 
 	//jsonStr()
-
-}
-
-func jsonStr() {
-	str := `2022-08-26 11:36:46.155 32004 32004 I dist    : type=1400 audit(0.0:223605): avc: denied { append } for name=\"go_agent.log\" dev=\"dm-9\" ino=54341 scontext=u:r:start-ssh:s0 tcontext=u:object_r:system_data_file:s0 tclass=file permissive=1\n2022-08-26 11:36:46.155 32004 32004 I dist    : type=1400 audit(0.0:223606): avc: denied { create } for scontext=u:r:start-ssh:s0 tcontext=u:r:start-ssh:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:36:46.159 32004 32004 I dist    : type=1400 audit(0.0:223607): avc: denied { bind } for scontext=u:r:start-ssh:s0 tcontext=u:r:start-ssh:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:36:46.159 32004 32004 I dist    : type=1400 audit(0.0:223608): avc: denied { node_bind } for saddr=::1 scontext=u:r:start-ssh:s0 tcontext=u:object_r:node:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:36:46.159 32004 32004 I dist    : type=1400 audit(0.0:223609): avc: denied { read } for name=\"somaxconn\" dev=\"proc\" ino=65941 scontext=u:r:start-ssh:s0 tcontext=u:object_r:proc_net:s0 tclass=file permissive=1\n2022-08-26 11:38:02.755 32137 32137 I dist    : type=1400 audit(0.0:223652): avc: denied { connect } for scontext=u:r:start-ssh:s0 tcontext=u:r:start-ssh:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:38:02.755 32137 32137 I dist    : type=1400 audit(0.0:223653): avc: denied { name_connect } for dest=18080 scontext=u:r:start-ssh:s0 tcontext=u:object_r:port:s0 tclass=tcp_socket permissive=1\n2022-08-26 11:38:55.220   690 32210 E ResolverController: No valid NAT64 prefix (100, <unspecified>/0)\n2022-08-26 11:38:55.224   690 32212 E ResolverController: No valid NAT64 prefix (100, <unspecified>/0)\n2022-08-26 11:38:58.172   690 32213 E ResolverController: No valid NAT64 prefix (100, <unspecified>/0)\n`
-
-	s := strings.Split(str, `\n`)
-	for i, ele := range s {
-		fmt.Printf("i:%d ,%+v  \n", i, ele)
-
-	}
 
 }
